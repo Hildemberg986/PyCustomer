@@ -1,0 +1,2 @@
+def colar():
+    print('colar')

@@ -1,6 +1,9 @@
 def create_user():
+    from functions.duplicatecpfchecker import duplicate_cpf_checker
+    from functions.checker import validar_cpf
     from functions.clear import clear
     import pickle
+    import time
 
     Users = {}
 
@@ -11,19 +14,29 @@ def create_user():
     except:
      arqUser = open("Users.dat", "wb")
      arqUser.close()
-    id_user = len(Users.keys())
+    
 
     name = input("Nome do novo usuario... ")
     clear()
     cont = 0
     while cont == 0:
         cpf = input("Digite seu cpf... ")
-        print('000' in Users.values())
-        if cpf in Users.values():
-            clear()
-            print("CPF já cadastrado em outro usuário")
+        cpf = ''.join(filter(str.isdigit, cpf))
+        checker_cpf = validar_cpf(cpf)
+        if checker_cpf:
+            if duplicate_cpf_checker(cpf):
+                clear()
+                print("CPF já cadastrado em outro usuário")
+            else:
+                break
         else:
-            print('Novo usuário cadastrado')
-            cont = 1
-    user = [name, cpf]
+            clear()
+            print('CPF inválido!!')
+    clear()
+    email = input("Digite seu e-mail... ")
+    clear()
+    print('Novo usuario cadastrado')
+    time.sleep(3)
+
+    user = [name, cpf, email]
     return user

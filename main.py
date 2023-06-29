@@ -9,6 +9,7 @@ import time
 import pickle
 
 users = {}
+
 try:
     arqUser = open("users.dat", "rb")
     users = pickle.load(arqUser)
@@ -18,6 +19,7 @@ except:
     arqUser.close()
 
 fim = False
+
 while fim == False:
     clear()
     print('==================================')

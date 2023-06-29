@@ -3,11 +3,22 @@ from functions.search import *
 from functions.delete import *
 from functions.clear import *
 from functions.datebase import *
-from functions.checker import *
+from functions.checkerCPF import *
+from functions.upgradeuser import *
+import time
+import pickle
 
+users = {}
+try:
+    arqUser = open("users.dat", "rb")
+    users = pickle.load(arqUser)
+    arqUser.close()
+except:
+    arqUser = open("users.dat", "wb")
+    arqUser.close()
 
-fim = 0
-while fim != '0':
+fim = False
+while fim == False:
     clear()
     print('==================================')
     print('========  MENU PRINCIPAL  ========')
@@ -20,17 +31,22 @@ while fim != '0':
     option = input('Escolha sua opção ? ')
     if option == '1':
         clear()
-        add = create_user()
-        datebase(add)
+        create_user(users)
+        print(users)
     elif option == '2':
         clear()
-        search_user()
+        search_user(users)
     elif option == '3':
-        print('opçao 3')
+        clear()
+        upgrade_user(users)
     elif option == '4':
         clear()
-        del_user()
+        del_user(users)
     elif option == '0':
         clear()
         print ('Programa encerrado!')
-        break
+        fim = True
+    else:
+        clear()
+        print('Opção invalida!!')
+        time.sleep(1)

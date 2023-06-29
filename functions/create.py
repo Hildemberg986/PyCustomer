@@ -4,7 +4,7 @@ def create_user(users):
     from functions.clear import clear
     import time
     
-    name = input("Nome do novo usuário... ")
+    name = input("Nome do novo cliente... ")
     clear()
     
     cpf = input("Digite seu cpf... ")
@@ -17,7 +17,7 @@ def create_user(users):
             print('cpf invalido')
             print()
         elif checker == 'double':
-            print('cpf cadastrado em outro usuário')
+            print('cpf cadastrado em outro cliente')
             print()
             
         cpf = input("Digite seu cpf... ")
@@ -31,5 +31,5 @@ def create_user(users):
     
     datebase(user,users)
     
-    print ('Novo usuário cadastrado!')
+    print ('Novo cliente cadastrado!')
     time.sleep(1)

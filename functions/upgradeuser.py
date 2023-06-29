@@ -4,7 +4,7 @@ def upgrade_user(users):
     end = False
     while end == False:
         clear()
-        id_user = input('Digite o cpf do usuário que deseja atualizar... ')
+        id_user = input('Digite o cpf do cliente que deseja atualizar... ')
         clear()
         user = users.get(id_user)
         if user != None:
@@ -15,20 +15,20 @@ def upgrade_user(users):
             E-mail: {}'''.format (user[0],user[1],user[2]) 
             print(copy_user)      
             print()
-            choice = input('Gostaria de modificar o usuário ? s/n ')
+            choice = input('Gostaria de modificar o cliente? s/n ')
             clear()
             if choice == 's':
-                al_name = input('Gostaria de alterar o nome do usuário ? s/n ')
+                al_name = input('Gostaria de alterar o nome do cliente ? s/n ')
                 clear()
                 if al_name == 's':
-                    name = input("Novo nome do usuário... ")
+                    name = input("Novo nome do cliente... ")
                     clear()
                 else:
                     name = user[0]
-                al_email = input('Gostaria de alterar o e-mail do usuário ? s/n ')
+                al_email = input('Gostaria de alterar o e-mail do cliente? s/n ')
                 clear()
                 if al_email == 's':
-                    email = input("Novo email do usuário... ")
+                    email = input("Novo email do cliente... ")
                     clear()
                 else:
                     email = user[2]
@@ -38,7 +38,7 @@ def upgrade_user(users):
             else:
                 choice = 'n'
         else:
-            print('Usuário não encontrado...') 
+            print('Cliente não encontrado...') 
             choice = input('Gostaria de tentar de novo ? s/n ')
         if choice == 'n':
             end = True

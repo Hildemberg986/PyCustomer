@@ -1,36 +1,32 @@
-def del_user():
+def del_user(users):
     from functions.clear import clear
     import pickle
-
-    Users = {}
-
-    try:
-        arqUser = open('Users.dat', 'rb')
-        Users = pickle.load(arqUser)
-        arqUser.close()
-    except:
-        arqUser = open('Users.dat', 'wb')
-        arqUser.close()
-
-    fim = 0
-    while fim != '0':
-            search_del_user = input('Qual o id do usuario que gostaria de deletar ? (digite exit caso nâo queira deletar nem um usuario) ')
-            clear()
-            if search_del_user in Users:
-                user = Users[search_del_user]
-                print(user) 
-                escolha = input('Gostaria mesmo de excluir esse usuario ? s/n ')
-                if escolha == 's':
-                    del Users[search_del_user]
-                    arqUser = open("Users.dat", "wb")
-                    pickle.dump(Users, arqUser)
-                    arqUser.close()
-                    print('Usuario deletado')
-                else:
-                    print('Usuario não deletado') 
-                break
-                    
-            elif search_del_user == 'exit':
-                break
-            else:
-                print('Chave não encontrada')
+    import time
+    
+    end = False
+    while end == False:
+        clear()
+        id_user = input('Digite o cpf do usuário que deseja deletar... ')
+        clear()
+        user = users.get(id_user)
+        if user != None:
+            user ='''
+            Nome: {} 
+            CPF: {} 
+            E-mail: {}'''.format (user[0],user[1],user[2]) 
+            print(user)      
+            print()
+            choice = input('Gostaria de deletar esse usuário ? s/n ')
+            if choice == 's':
+                users.pop(id_user)
+                print('Usuário deletado com sucesso!!')
+                time.sleep(1)
+                choice = 'n'
+                arqUser = open("users.dat", "wb")
+                pickle.dump(users , arqUser)
+                arqUser.close()
+        else:
+            print('Usuário não encontrado...') 
+            choice = input('Gostaria de buscar de novo ? s/n ')
+        if choice == 'n':
+            end = True

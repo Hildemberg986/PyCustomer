@@ -1,5 +1,6 @@
 def search_user(users):
     from functions.clear import clear
+    
     end = False
     while end == False:
         clear()

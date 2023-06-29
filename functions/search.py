@@ -1,39 +1,22 @@
-def search_user():
-    import pickle
+def search_user(users):
     from functions.clear import clear
-    
-    
-    Users = {}
-    try:
-        arqUser = open("Users.dat", "rb")
-        Users = pickle.load(arqUser)
-        arqUser.close()
-    except:
-        arqUser = open("Users.dat", "wb")
-        arqUser.close()
-    fim = 0
-    while fim != "0":
+    end = False
+    while end == False:
         clear()
-        searchitem = input('Digite o cpf ou nome do usuario que deseja buscar... ')
+        id_user = input('Digite o cpf do usuário que deseja buscar... ')
         clear()
-        for key, user in Users.items():    
-            if searchitem in user:
-                print()
-                User ='''
-        id: {} 
-        Nome: {} 
-        CPF: {} 
-        E-mail: {}'''.format (key,user[0],user[1],user[2]) 
-                print(User)       
-                break
-            User = ''
-
-        if User == '':
-            escolha = input('Usuario nao encontrado, deseja buscar novanmente ? s/n ')
-            if escolha == 'n':
-                break
-        elif user != "":
+        user = users.get(id_user)
+        if user != None:
+            user ='''
+            Nome: {} 
+            CPF: {} 
+            E-mail: {}'''.format (user[0],user[1],user[2]) 
+            print(user)      
             print()
-            print()
-            input('Precione enter para continuar...')
-            break
+            choice = input('Gostaria de buscar um novo usuário ? s/n ')
+        else:
+            print('Usuário não encontrado...') 
+            choice = input('Gostaria de buscar de novo ? s/n ')
+        if choice == 'n':
+            end = True
+        

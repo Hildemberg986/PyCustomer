@@ -1,6 +1,7 @@
 def upgrade_user(users):
     from functions.clear import clear
     from functions.datebase import datebase
+    from functions.validations.checkerEmail import checker_email
     end = False
     while end == False:
         clear()
@@ -29,6 +30,13 @@ def upgrade_user(users):
                 clear()
                 if al_email == 's':
                     email = input("Novo email do cliente... ")
+                    checkerEmail = checker_email(email)
+                    while checkerEmail  == False: 
+                        clear()
+                        print('email invalido')
+                        print()
+                        email = input("Digite seu email... ")
+                        checkerEmail = checker_email(email)
                     clear()
                 else:
                     email = user[2]

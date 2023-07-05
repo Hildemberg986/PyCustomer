@@ -1,2 +1,2 @@
 # PyCustomer
-Um Sistema de Gestão de Clientes 
+Um Sistema de Gestão de Clientes e cadastro de vendas

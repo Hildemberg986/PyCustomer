@@ -1,10 +1,15 @@
-from functions.create import *
+from functions.create.createuser import *
 from functions.search import *
 from functions.delete import *
 from functions.clear import *
 from functions.datebase import *
-from functions.checkerCPF import *
+from functions.validations.checkerCPF import *
 from functions.upgradeuser import *
+from functions.menus.customermenu import *
+from functions.menus.homemenu import *
+from functions.menus.salesmenu import*
+from functions.create.createsale import*
+from functions.saleshistory import*
 import time
 import pickle
 
@@ -17,37 +22,68 @@ try:
 except:
     arqUser = open("users.dat", "wb")
     arqUser.close()
+ 
+sales = {}
 
-fim = False
+try:
+    arqSales = open("sales.dat", "rb")
+    sales = pickle.load(arqSales)
+    arqSales.close()
+except:
+    arqSales = open("sales.dat", "wb")
+    arqSales.close()
 
-while fim == False:
-    clear()
-    print('==================================')
-    print('========  MENU PRINCIPAL  ========')
-    print('==================================')
-    print('   1 - CADASTRAR CLIENTE')
-    print('   2 - PESQUISAR CLIENTE')
-    print('   3 - MODIFICAR CLIENTE')
-    print('   4 - DELETAR CLIENTE')
-    print('   0 - SAIR')
-    option = input('Escolha sua opção ? ')
+end = False
+
+while end == False:
+    option = homeMenu()
+    
     if option == '1':
-        clear()
-        create_user(users)
-        print(users)
+        while end == False:
+            option = salesMenu()
+            if option == '1':
+                clear()
+                creatSale(sales)
+            elif option == '2':
+                clear()
+                salesHistory(sales)
+            elif option == '0':
+                clear()
+                end = True
+            else:
+                clear()
+                print('Opção invalida!!')
+                time.sleep(1)
+            
+        end = False
     elif option == '2':
-        clear()
-        search_user(users)
-    elif option == '3':
-        clear()
-        upgrade_user(users)
-    elif option == '4':
-        clear()
-        del_user(users)
+        while end == False:
+            option = customerMenu()
+            if option == '1':
+                clear()
+                create_user(users)
+                print(users)
+            elif option == '2':
+                clear()
+                search_user(users)
+            elif option == '3':
+                clear()
+                upgrade_user(users)
+            elif option == '4':
+                clear()
+                del_user(users)
+            elif option == '0':
+                clear()
+                end = True
+            else:
+                clear()
+                print('Opção invalida!!')
+                time.sleep(1)
+        end = False
     elif option == '0':
         clear()
-        print ('Programa encerrado!')
-        fim = True
+        print('Fim do programa')
+        end = True
     else:
         clear()
         print('Opção invalida!!')

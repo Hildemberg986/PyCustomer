@@ -1,3 +1,4 @@
+#função para limpar console
 def clear():
     import os
     import platform

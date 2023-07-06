@@ -1,18 +1,25 @@
+#Função para montar venda
 def creatSale(sales):
-    from datetime import datetime
+    #importando funções
+    import time
     from functions.clear import clear
-    import pickle
+    from functions.datebase import datebase
 
-    data_atual = datetime.today()
-    key = data_atual.strftime('''%d%m%Y%H%M%S''')
-    
+    option = "sale"
+    user = None
+    users = None
+
     value = float(input('valor da venda ? '))
     clear()
+
     paymentmethod = input('qual o metodo de pagamento ? ')
+    clear()
+    
+    #Monta a venda para enviar ao banco de dados 
     sale = [value, paymentmethod]
     
-    sales[key] = sale
-    
-    arqSales = open("sales.dat", "wb")
-    pickle.dump(sales , arqSales)
-    arqSales.close()
+    #Chama a função que salva no banco de dados 
+    datebase(sale,user,sales, users, option)
+
+    print('Nova venda cadastrada!')
+    time.sleep(1)

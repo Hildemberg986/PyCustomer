@@ -1,3 +1,4 @@
+#Função para printar menu inicial
 def homeMenu():
     from functions.clear import clear
     clear()

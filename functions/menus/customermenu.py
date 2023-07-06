@@ -1,3 +1,4 @@
+#Função para printar menu de cliente
 def customerMenu():
     from functions.clear import clear
     clear()

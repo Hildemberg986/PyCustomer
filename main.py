@@ -13,6 +13,7 @@ from functions.saleshistory import*
 import time
 import pickle
 
+#Importa o dicionario users do banco de dados
 users = {}
 
 try:
@@ -22,7 +23,8 @@ try:
 except:
     arqUser = open("users.dat", "wb")
     arqUser.close()
- 
+
+#Importa o dicionario sales do banco de dados
 sales = {}
 
 try:
@@ -33,12 +35,17 @@ except:
     arqSales = open("sales.dat", "wb")
     arqSales.close()
 
-end = False
-
-while end == False:
+endP = False
+#Loop para o menu principal
+while endP == False:
+    end = False
+    #Define uma opção
     option = homeMenu()
     
+    #Define qual opção entrar
     if option == '1':
+        
+        #Loop para o menu de vendas
         while end == False:
             option = salesMenu()
             if option == '1':
@@ -54,9 +61,9 @@ while end == False:
                 clear()
                 print('Opção invalida!!')
                 time.sleep(1)
-            
-        end = False
+    #Loop para o menu de cliente
     elif option == '2':
+
         while end == False:
             option = customerMenu()
             if option == '1':
@@ -72,6 +79,8 @@ while end == False:
             elif option == '4':
                 clear()
                 del_user(users)
+
+            #Sai do loop
             elif option == '0':
                 clear()
                 end = True
@@ -79,11 +88,12 @@ while end == False:
                 clear()
                 print('Opção invalida!!')
                 time.sleep(1)
-        end = False
+        end == False
+    #Sai do loop
     elif option == '0':
         clear()
         print('Fim do programa')
-        end = True
+        endP = True
     else:
         clear()
         print('Opção invalida!!')

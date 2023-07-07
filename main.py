@@ -63,7 +63,8 @@ while endP == False:
                 time.sleep(1)
     #Loop para o menu de cliente
     elif option == '2':
-
+        
+        #Loop para o menu de clientes
         while end == False:
             option = customerMenu()
             if option == '1':

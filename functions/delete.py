@@ -4,8 +4,10 @@ def del_user(users):
     import pickle
     import time
     
+    end = False
+    
     #Loop para pesquisar usuario e escolher se deseja deletalo
-    while True:
+    while end == False:
         clear()
         id_user = input('Digite o cpf do Cliente que deseja deletar... ')
         clear()
@@ -40,4 +42,4 @@ def del_user(users):
             print('Cliente não encontrado...') 
             choice = input('Gostaria de buscar de novo ? s/n ')
         if choice == 'n':
-            break
+            end = True

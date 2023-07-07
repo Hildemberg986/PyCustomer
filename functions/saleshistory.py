@@ -2,8 +2,10 @@
 def salesHistory(sales):
     from functions.clear import clear
 
+    end = False
+    
     #Loop para o usuario digitar um ano valido 
-    while True:
+    while end == False:
         year = input('Qual o ano que deseja buscar (YYYY) ? ')
 
         #conta quantos digitos o usuario digitou
@@ -11,7 +13,7 @@ def salesHistory(sales):
 
         #verifica se o usuario colocou um ano valido
         if yearc == 4 and (year[0] == "2" or year[0] == "1"):
-            break
+            end = True
         else:
             clear()
             print('Digite um ano valido !')

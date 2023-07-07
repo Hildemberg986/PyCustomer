@@ -2,8 +2,10 @@
 def search_user(users):
     from functions.clear import clear
     
+    end = False
+    
     #loop para sair do loop
-    while True:
+    while end == False:
         
         clear()
         id_user = input('Digite o cpf do cliente que deseja buscar... ')
@@ -31,5 +33,5 @@ def search_user(users):
 
         #Define a saida do loop
         if choice == 'n':
-            break
+            end = True
         

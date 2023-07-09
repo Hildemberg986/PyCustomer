@@ -4,7 +4,7 @@ def datebase(sale,user,sales, users, option):
     import pickle
 
     #Define qual banco de dados salvar 
-    if option == "user" or 'update user':
+    if option == "user" or option == 'update user':
 
         #Extrai o CPF do cliente para aser usado como key no dicionario
         cpf_user = user[1]

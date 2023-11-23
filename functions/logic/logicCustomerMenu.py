@@ -1,6 +1,7 @@
 from functions.Generic_functions.clear import clear
 from functions.menus.AdminLoginScreen import adminLoginScreen
 from functions.menus.ClientLoginScreen import ClientLoginScreen
+from functions.menus.ClientRegistrationScreen import ClientRegistrationScreen
 from functions.menus.customermenu import customerMenu
 import time
 
@@ -14,7 +15,7 @@ def logicCustomerMenu():
         elif option == 2:
             ClientLoginScreen()
         elif option == 3:
-            print("3")
+            ClientRegistrationScreen()
         elif option == 0:
             iniciar = False
         else:

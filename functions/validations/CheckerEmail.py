@@ -1,5 +1,5 @@
 #Validação de email criada pelo chat GPT
-def checker_email(email : str):
+def CheckerEmail(email : str):
     import re
     # Expressão regular para validar o formato do e-mail
     padrao = r'^[\w\.-]+@[\w\.-]+\.\w+$'

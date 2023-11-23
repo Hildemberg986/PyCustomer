@@ -1,5 +1,7 @@
+from functions.Generic_functions.clear import clear
+
+
 def ClientLoginScreen():
-    from functions.Generic_functions.clear import clear
     clear()
     print('==================================')
     print('======= LOGIN COMO CLIENTE =======')

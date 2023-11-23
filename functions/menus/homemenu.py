@@ -1,6 +1,8 @@
 #Função para printar menu inicial
+from functions.Generic_functions.clear import clear
+
+
 def homeMenu():
-    from functions.Generic_functions.clear import clear
     clear()
     print('==================================')
     print('========  MENU   INICIAL  ========')

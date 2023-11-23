@@ -1,5 +1,5 @@
 #Validação do cpf criada pelo chat GPT, menos o de testar CPF duplicado
-def validar_cpf(cpf : str):
+def ChekerCPF(cpf : str):
     # Remover caracteres não numéricos do CPF
     cpf = ''.join(filter(str.isdigit, cpf))
 

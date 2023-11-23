@@ -1,6 +1,8 @@
 #Função para printar menu de cliente
+from functions.Generic_functions.clear import clear
+
+
 def customerMenu():
-    from functions.Generic_functions.clear import clear
     clear()
     print('==================================')
     print('========== MENU   LOGIN ==========')

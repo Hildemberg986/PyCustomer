@@ -1,14 +1,17 @@
 #Função para printar menu de cliente
 def customerMenu():
-    from functions.clear import clear
+    from functions.Generic_functions.clear import clear
     clear()
     print('==================================')
-    print('========  MENU   CLIENTE  ========')
+    print('========== MENU   LOGIN ==========')
     print('==================================')
-    print('   1 - CADASTRAR CLIENTE')
-    print('   2 - PESQUISAR CLIENTE')
-    print('   3 - MODIFICAR CLIENTE')
-    print('   4 - DELETAR CLIENTE')
-    print('   0 - VOLTAR')
-    option = input('Escolha sua opção ? ')
+    print('   1 - Logar Como Administrador')
+    print('   2 - Logar Como cliente')
+    print('   3 - Cadastrar Novo Ususario')
+    print('   0 - Voltar')
+    print('')
+    try:
+        option = int(input('Escolha sua opção: '))
+    except ValueError:
+        option = int(99999)
     return option

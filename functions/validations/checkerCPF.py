@@ -1,5 +1,5 @@
 #Validação do cpf criada pelo chat GPT, menos o de testar CPF duplicado
-def validar_cpf(cpf, users):
+def validar_cpf(cpf : str):
     # Remover caracteres não numéricos do CPF
     cpf = ''.join(filter(str.isdigit, cpf))
 
@@ -34,10 +34,5 @@ def validar_cpf(cpf, users):
 
     if int(cpf[10]) != digito2:
         return False
-
-    # Testa cpf duplicado
-    for i in users.values():
-        if cpf in i:
-            return 'double'
     # CPF válido
     return True

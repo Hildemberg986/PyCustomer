@@ -1,4 +1,7 @@
 #Validação do cpf criada pelo chat GPT, menos o de testar CPF duplicado
+from functions.validations.CPFDuplicacion import CPFDuplication
+
+
 def ChekerCPF(cpf : str):
     # Remover caracteres não numéricos do CPF
     cpf = ''.join(filter(str.isdigit, cpf))
@@ -34,5 +37,5 @@ def ChekerCPF(cpf : str):
 
     if int(cpf[10]) != digito2:
         return False
-    # CPF válido
+        
     return True

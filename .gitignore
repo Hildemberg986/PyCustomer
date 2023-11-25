@@ -3,6 +3,7 @@
 *.py[cod]
 *$py.class
 *.dat
+*.xlsx
 # C extensions
 *.so
 

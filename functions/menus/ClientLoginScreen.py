@@ -1,12 +1,16 @@
 from functions.Generic_functions.clear import clear
+from functions.validations.LoginValidation import LoginValidation
 
 
-def ClientLoginScreen():
+def ClientLoginScreen() -> tuple:
     clear()
     print('==================================')
     print('======= LOGIN COMO CLIENTE =======')
     print('==================================')
     print('')
-    id_do_usuario = input('ID do usuario...')
+    cpf = input('CPF do usuario...')
+    cpf = ''.join(filter(str.isdigit, cpf))
     key = input('Senha...')
-    return id_do_usuario,key
+    if LoginValidation(cpf,key):
+        return cpf, True
+    return cpf, False

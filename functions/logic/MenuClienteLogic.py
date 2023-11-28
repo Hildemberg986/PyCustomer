@@ -14,12 +14,12 @@ def MenuClientelogic():
         print (f"\t\t\tO CPF:{cpf1} não esta cadastrado ou a senha esta incorreta...")
         time.sleep(3)
         return
-    iniciar = True
-    while iniciar == True:
-        option = MenuCliente()
+    start = True
+    while start == True:
+        option = MenuCliente(cpf)
         if option == 1:
             MenuCompras(cpf)
         elif option == 2:
             MostrarCompras(cpf)
         elif option == 0:
-            iniciar == False
+            start = False
